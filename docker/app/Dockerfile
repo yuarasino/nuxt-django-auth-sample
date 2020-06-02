@@ -6,7 +6,7 @@ ENV TZ Asia/Tokyo
 
 WORKDIR /project/app
 
-# COPY app/package.json api/package-lock.json ./
+COPY app/package.json app/package-lock.json ./
 
-# RUN set -ex \
-#   && npm install
+RUN set -ex \
+  && npm install
