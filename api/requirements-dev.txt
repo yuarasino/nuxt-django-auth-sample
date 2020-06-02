@@ -1,1 +1,11 @@
 -r requirements.txt
+
+pytest
+pytest-randomly
+flake8
+flake8-mypy
+flake8-black
+flake8-isort
+mypy
+black
+isort

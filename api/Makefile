@@ -1,4 +1,4 @@
-.PHONY: manage runserver migrate createsuperuser
+.PHONY: manage runserver migrate createsuperuser test test-lf lint fmt
 
 
 manage:
@@ -15,3 +15,18 @@ migrate:
 
 createsuperuser:
 	@make manage c="createsuperuser"
+
+
+test:
+	venv/bin/pytest tests
+
+test-lf:
+	venv/bin/pytest --lf tests
+
+lint:
+	venv/bin/flake8 .
+	venv/bin/mypy .
+
+fmt:
+	venv/bin/black .
+	venv/bin/isort -y -rc .

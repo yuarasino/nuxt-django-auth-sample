@@ -1,0 +1,14 @@
+{
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "api",
+  "workspaceFolder": "/project/api",
+  "shutdownAction": "none",
+  "extensions": [
+    "editorconfig.editorconfig",
+    "ms-python.python",
+    "batisteo.vscode-django"
+  ],
+  "settings": {
+    "python.pythonPath": "venv/bin/python3"
+  }
+}
