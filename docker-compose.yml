@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: docker/api/Dockerfile
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - .:/project
+      - api_deps:/project/api/venv:cached
+    tty: true
+
+  app:
+    build:
+      context: .
+      dockerfile: docker/app/Dockerfile
+    ports:
+      - "127.0.0.1:3000:3000"
+    volumes:
+      - .:/project
+      - app_deps:/project/app/node_modules:cached
+    tty: true
+
+volumes:
+  api_deps:
+  app_deps:
