@@ -2,6 +2,7 @@ version: "3"
 
 services:
   api:
+    hostname: api
     build:
       context: .
       dockerfile: docker/api/Dockerfile
@@ -13,6 +14,7 @@ services:
     tty: true
 
   app:
+    hostname: app
     build:
       context: .
       dockerfile: docker/app/Dockerfile

@@ -1,7 +1,5 @@
-import colors from "vuetify/es5/util/colors"
-
 export default {
-  mode: "universal",
+  mode: "spa",
   srcDir: "src",
   /*
    ** Headers of the page
@@ -45,19 +43,48 @@ export default {
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    "@nuxtjs/axios"
+    "@nuxtjs/axios",
+    "@nuxtjs/auth"
   ],
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    host: "localhost",
+    port: 8000
+  },
+  /*
+   ** Auth module configuration
+   ** https://dev.auth.nuxtjs.org/guide/setup.html
+   */
+  auth: {
+    redirect: {
+      login: "/login",
+      logout: "/login",
+      callback: false,
+      home: "/"
+    },
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: "/api/login", method: "post", propertyName: "token" },
+          user: { url: "/api/user", method: "get", propertyName: false },
+          logout: false
+        },
+        tokenType: "Token"
+      }
+    }
+  },
+  router: {
+    middleware: ["auth"]
+  },
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module
    */
   vuetify: {
-    customVariables: ["~/assets/variables.scss"],
+    customVariables: ["~/assets/variables.scss"]
   },
   /*
    ** Build configuration
