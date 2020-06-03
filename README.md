@@ -1,6 +1,8 @@
 # nuxt-django-auth-sample
 Nuxt.js × Django で認証やるサンプル
 
+![ログイン](./docs/login.jpg) ![ホーム](./docs/home.jpg)
+
 ## 試してみる
 
 ```
